@@ -1,38 +1,29 @@
 module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-  ],
-  parser: "babel-eslint",
+  parser: "@typescript-eslint/parser", // Specifies the ESLint parser
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module",
+    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    sourceType: "module", // Allows for the use of imports
     ecmaFeatures: {
-      jsx: true,
+      jsx: true, // Allows for the parsing of JSX
     },
-  },
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-    jest: true,
-  },
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-  },
-  rules: {
-    "no-debugger": "off",
-    "no-console": "off",
-    "no-unused-vars": "warn",
-    "react/prop-types": "warn",
   },
   settings: {
     react: {
-      version: "latest",
+      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
     },
   },
-  root: true,
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
+    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin
+  ],
+  rules: {
+    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "no-console": "warn",
+    "no-undef": "off",
+  },
 };
