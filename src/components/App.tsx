@@ -1,8 +1,8 @@
 import React from "react";
 
-class App extends React.Component {
-  constructor() {
-    super();
+class App extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -15,7 +15,6 @@ class App extends React.Component {
 
   //Handlers
   handleButtonClick = () => {
-    debugger;
     const nameLen = this.state.name.length;
     if (nameLen > 0) {
       this.setState({

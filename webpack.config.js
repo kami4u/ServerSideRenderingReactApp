@@ -5,7 +5,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   entry: {
     vendor: ["@babel/polyfill", "react", "react-dom"],
-    app: ["./src/index.js"],
+    app: ["./src"],
   },
   output: {
     path: path.resolve(__dirname, "public"),
@@ -13,6 +13,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(t|j)sx?$/,
+        exclude: /node_modules/,
+        use: { loader: "awesome-typescript-loader" },
+      },
       {
         test: /\.(js|jsx)$/,
         use: {
@@ -26,6 +31,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".wasm", ".mjs", "*"],
+    extensions: [".js", ".json", ".ts", ".tsx"],
   },
 };
